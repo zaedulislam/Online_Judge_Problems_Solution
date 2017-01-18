@@ -1,0 +1,56 @@
+// UVa 686 - Goldbach's Conjecture (II).cpp
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+// prime[i] = 0, if i is prime
+// prime[i] = 1, if i is not a prime
+const int arraySize = 327768 + 2;
+int prime[arraySize]; // Declared globally,thus automatically assigned initially 0 to every element of the array.
+
+void primeGenerate()
+{
+	int sqrtN = int(sqrt((double)arraySize));
+	//memset(prime, 1, sizeof(prime));
+	prime[0] = prime[1] = 1;    // Since, 0 isn't prime either composite
+
+	for (int index = 2; index <= sqrtN; index++) // Have to check primes up to (sqrt(N))
+	{
+		if (prime[index] == 0)
+		{
+			// so, index is a prime, so, discard all the multiples.
+			// j = index * index, because its the first number to be colored.
+			for (int k = index + index; k <= arraySize; k += index)
+				prime[k] = 1;
+		}
+	}
+} // Ends
+
+int main()
+{
+	primeGenerate();
+	int numPairs;
+	int even_integer = -1, i, range;
+	while (even_integer != 0)
+	{
+		numPairs = 0;
+		cin >> even_integer;
+		if (even_integer == 0)
+			break;
+		bool verified = false;
+		range = even_integer/2 ;
+
+		for (i = 2; i <= range; i++)
+		{
+			if (!(prime[i]) && !(prime[even_integer - i]))
+			{
+				numPairs++  ;
+			}
+		}
+		printf("%d\n", numPairs);
+	}
+	return 0;
+}
+

@@ -1,0 +1,50 @@
+// UVa 10042 - Twin Primes.cpp
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+const int arraySize = 20000000;
+int prime[arraySize];
+int twin_prime[arraySize];
+
+// Generates prime numbers
+void sievePrime()
+{
+	int sqrtN = int(sqrt((double)arraySize));
+	for (int i = 3; i <= sqrtN; i +=2){  // // have to check primes up to (sqrt(N))
+		if (prime[i] == 0){
+			// so, i is a prime, so, discard all the multiples 
+			// k = i * i is the first multiple, then k +=2 * i, will find the 
+			// next odd multiple 
+			for (int k = i * i; k <= arraySize; k += 2 * i){
+				prime[k] = 1; // // status of the multiple is 1
+			}
+		}
+	}
+}
+
+// Seperate twin primes in another array 
+void findTwinPrimes()
+{
+	int index = 1;
+	for (int p = 3; p <= arraySize; p +=2){
+		if (prime[p] == 0){
+			if (!prime[p] && !prime[p + 2]){
+				twin_prime[index++] = p;
+			}
+		}
+	}
+}
+
+int main()
+{
+	sievePrime(); // Pre-cal
+	findTwinPrimes();
+	int S; // Number of testcases
+	while (cin >> S){  //  Input file is terminated by end of file
+		// Print the S-th twin primes
+		cout << "(" << twin_prime[S] << ", " << twin_prime[S] + 2 << ")" << endl;
+	}
+	return 0;
+}

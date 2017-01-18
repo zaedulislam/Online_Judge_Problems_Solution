@@ -1,0 +1,101 @@
+// UVa 583 - Prime Factors.cpp
+// Explanation
+// While a completely dumb approach to factoring a number n is to try dividing by all possible factors
+// f in the range 2\leq f\leq n - 1 and checking their remainder, this will timeout.However, a slightly 
+// smarter approaching, trying all factors f in the range 2\leq f\leq{ \sqrt{ n } } will run in time.
+// The reason checking the reduced set of candidates works is essentially that the smaller factor is never
+// bigger than{ \sqrt{ n } }, a very short proof follows.
+// Consider a positive integer n with positive factors a and b, so n = a\times b.Without loss of generality,
+// choose to label the smaller number a.So then a <= b, and a * a <= a * b <= n, and 
+// therefore a <= {\sqrt  {n}}.
+
+// Optimizations
+// These are not neccesary but will give you a faster time.The first optimization is simple, 2 is the only even prime,
+// so after two, we can check only odd factors, which will reduce the possible factor space by a factor of 2, and 
+//give a nearly equal speed up.
+
+// An optimization that is a bit harder to implement is to pre - compute all the primes p in the range 
+// 2 <= p <={ \sqrt{ 2 ^ { {31}} } } with the Prime Sieve of Eratosthenes and use that as the candidate list.
+// There are only about ~5, 000 primes from 2 <= p <={ \sqrt{ 2 ^ { {31}} } } the time that it takes to generate 
+// all these primes are not as significant as making your program as optimized as possible on output.
+
+// Store the result in a string. (will save most of your time) output takes a long time.
+// While the number you are working with is not 1.
+
+#include<cstdio>
+#include<cmath>
+#include<iostream>
+#include<string>
+using namespace std;
+
+const int arraySize = 1000000;
+int prime[arraySize];
+int status[arraySize];
+
+// Generates prime number
+
+void sievePrime() {
+	int sqrtN = int(sqrt(double(arraySize)));
+	status[0] = status[1] = 1; // 0 & 1 aren't prime
+	for (int i = 3; i <= sqrtN; i +=2) { // have to check primes up to (sqrt(N))
+		if (status[i] == 0) {
+			// so, i is a prime, so, discard all the multiples 
+			// j = i * i, because it’s the first number to be colored
+			for (int k = i * i; k <= arraySize; k += 2*i) {
+				status[k] = 1; // status of the multiple is 1
+			}
+		}
+	}
+	int k = 0;
+	prime[k++] = 2;
+	for (int i = 3; i <= arraySize; i += 2){
+		if (status[i] == 0)
+			prime[k++] = i;
+	}
+}
+
+
+int main()
+{
+	sievePrime();
+	int input,k,number,s;
+
+	while (true) {
+		scanf("%d", &number);
+		if (number == 0)
+			break;
+		printf("%d =", number);  //just printing
+
+		if (number<0) {
+			//if given number is negative we need to times it with -1
+			printf(" -1 x");  //just printing
+			number *= -1;  //multiplication by -1
+		}
+		if (number == 1) {
+			printf("1\n");
+			continue;
+		}
+		
+		int sqrtN = int(sqrt((double)number));
+		
+		k = 0;
+		for (int i = 0; prime[i] <= sqrtN; i++){
+			if (number % prime[i] == 0){
+				while (number %prime[i] == 0){
+					number /= prime[i];
+
+					if (number >1)
+						printf(" %d x", prime[i]);
+					else 
+						printf(" %d", prime[i]);
+				}
+				sqrtN = int(sqrt((double)number));
+			}
+		} 
+		if (number > 1)
+			printf(" %d", number);
+
+		printf("\n");
+	}
+	return 0;
+}

@@ -1,0 +1,66 @@
+// UVa 993 - Product of digits.cpp
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<cctype>
+#include<cmath>
+#include<cstdlib>
+
+using namespace std;
+
+void sortInAsc(long long int _array[], long long int arraySize) {
+	long long int i, item;
+	for (i = 1; i <= arraySize - 1; i++) {
+		// Starts with 1 (not 0)
+		item = _array[i];
+		long long int index = i - 1;
+		while (index >= 0 && _array[index] > item) {
+			// Larger values move up
+			_array[index + 1] = _array[index];
+			index--;
+		}
+		_array[index + 1] = item;  // // Put item into its proper location
+	}
+}
+
+int main()
+{
+	long long int N, _array[1000], k, index, divisor, testCase;
+
+	cin >> testCase;
+	while (testCase--)
+	{
+		cin >> N;
+		if (N<10) {
+			printf("%d\n", N);
+			continue;
+		}
+		divisor = 9;
+		// For most numbers, you need to break the number down into factors below 10, 
+		// then print the digits in ascending order. The smallest number tries to have as many large factors 
+		// as possible (i.e. maximum number of 9s, followed by maximum 8s, etc.), and the result is printed 
+		// in ascending order.
+		index = 0;
+		while (divisor>1) {
+			while (N%divisor == 0) {
+				N /= divisor;
+				_array[index++] = divisor;
+			}
+			divisor--;
+		}
+
+		if (N != 1) {
+			printf("%d\n", -1);
+			continue;
+		}
+			
+		sortInAsc(_array, index);
+		// N == 1, means N is completely divided
+		if (N == 1) {
+			for (k = 0; k < index; k++)
+				printf("%d", _array[k]);
+			printf("\n");
+		}
+	}
+	return 0;
+}
