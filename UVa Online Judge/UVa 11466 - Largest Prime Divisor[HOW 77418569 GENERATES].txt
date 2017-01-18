@@ -1,0 +1,83 @@
+// UVa 11466 - Largest Prime Divisor.cpp
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+using namespace std;
+
+const int arraySize = 10001000;
+int status[arraySize];
+long long int prime[arraySize];
+
+int sievePrime()
+{
+	int sqrtN = int(sqrt((double)arraySize));
+	int p, np;
+	for (p = 3;p <= sqrtN; p += 2) {
+		if (status[p] == 0) {
+			for (np = p * p;np <= arraySize;np += 2 * p) {
+				status[np] = 1;
+			}
+		}
+	}
+	int index = 0;
+	prime[index++] = 2;
+	int k;
+	for (k = 3;k <= 10001000;k += 2) {
+		if (status[k] == 0)
+			prime[index++] = k;
+	}
+	return index;
+}
+
+
+int main()
+{
+	int index = sievePrime();
+	
+	long long int num, LPD, i, divCount;
+
+	while (true) {
+		LPD = 0;
+		divCount = 0;
+		scanf("%lld", &num);
+		if (num == 0)
+			break;
+		// Lame Case
+		if (num < 0) {
+			num *= (-1);
+		}
+
+		// Finding largest prime divisor
+
+		for (i = 0; i<index && prime[i] <= num;i++) {
+			if (num % prime[i] == 0) {
+
+				LPD = prime[i];
+				divCount++;
+
+				while (num % prime[i] == 0) {
+					num /= prime[i];
+				}
+				if (num == 1)
+					break;
+			}
+		}
+		if (num == 1) {
+			if (divCount > 1)
+				printf("%lld\n", LPD);
+
+			else
+				printf("-1\n");
+
+		}
+		else {
+			if (divCount > 0)
+				printf("%lld\n", num);
+			else 
+				printf("-1\n");
+		}
+	}
+
+	return 0;
+}
+

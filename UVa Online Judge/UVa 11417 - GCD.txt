@@ -1,0 +1,33 @@
+// UVa 11417 - GCD
+
+#include<iostream>
+using namespace std;
+
+// Return the GCD of a and b
+int gcd(int a, int b){
+	int remainder = -1;
+	while (remainder != 0){ // 
+		remainder = b % a;
+		b = a;   
+		a = remainder;
+	}
+	return b;
+}
+
+int main()
+{
+	int input = -1;
+	while (input != 0){
+		int G = 0;
+		cin >> input;
+		if (input == 0)
+			break;
+		for (int i = 1; i < input; i++){
+			for (int j = i + 1; j <= input; j++){
+				G += gcd(i, j);
+			}
+		}
+		cout << G << endl;
+	}
+	return 0;
+}

@@ -1,0 +1,78 @@
+// UVa 11713 - Abstract Names
+
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+using namespace std;
+const int sz = 50;
+
+int main()
+{
+	int testCase;
+	char iFalse;
+	scanf("%d%c", &testCase,&iFalse);  // iFalse takes the '\n' from buffer
+
+	while (testCase--) {
+		char str1[sz];
+		char str2[sz];
+
+		int arr1[sz] = { 0 };
+		int arr2[sz] = { 0 };
+
+		fgets(str1, sz, stdin);
+		int len_1 = strlen(str1);
+		if (str1[len_1 - 1] != '\0')
+			str1[len_1 - 1] = '\0';
+		len_1--;
+
+		fgets(str2, sz, stdin);
+		int len_2 = strlen(str2);
+		if (str2[len_2 - 1] != '\0')
+			str2[len_2 - 1] = '\0';
+		len_2--;
+
+		if (len_1 != len_2) {
+			printf("No\n");
+			continue;
+		}
+		else if (len_1 == len_2) {
+			int i;
+			for (i = 0; i < len_1;i++) {
+				if (str1[i] == 'a' || str1[i] == 'e' || str1[i] == 'i' || str1[i] == 'o' || str1[i] == 'u')
+					arr1[i] = 1;
+				if (str2[i] == 'a' || str2[i] == 'e' || str2[i] == 'i' || str2[i] == 'o' || str2[i] == 'u')
+					arr2[i] = 1;
+			}
+			bool isPosition = true;
+			int v;
+			for (v = 0; v < len_1;v++) {
+				if (arr1[v] != arr2[v]) {
+					isPosition = false;
+					printf("No\n");
+					break;
+				}
+			}
+			if (!isPosition)
+				continue;
+			int k;
+			bool isEqual = true;
+			for (k = 0; k < len_1;k++) {
+				if (arr1[k] == 1 && arr2[k] == 1)
+					continue;
+				else {
+					if (str1[k] == str2[k])
+						continue;
+					else {
+						isEqual = false;
+						break;
+					}
+				}
+			}
+			if (isEqual)
+				printf("Yes\n");
+			else
+				printf("No\n");
+		}
+	}
+	return 0;
+}

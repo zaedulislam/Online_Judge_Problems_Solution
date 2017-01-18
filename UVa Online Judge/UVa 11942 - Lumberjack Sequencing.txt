@@ -1,0 +1,87 @@
+// UVa 11942 - Lumberjack Sequencing.cpp
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+#include<cstring>
+#include<string>
+
+const int arraySize = 10;
+int new_array[arraySize];
+
+
+using namespace std;
+
+void sortArray(int arr[]) {
+	int i, item;
+	for (i = 1; i <= arraySize - 1; i++)     // Starts with 1 (not 0)
+	{
+		item = arr[i];
+		int index = i - 1;
+		while (index >= 0 && arr[index] > item)  // Larger values move up
+		{
+			arr[index + 1] = arr[index];
+			index--;
+		}
+		arr[index + 1] = item;  // Put item into its proper location
+	}
+}
+
+void sortArray2(int arr[]) {
+	int i, item;
+	for (i = 1; i <= arraySize - 1; i++)     // // Starts with 1 (not 0)
+	{
+		item = arr[i];
+		int index = i - 1;
+		while (index >= 0 && arr[index] < item)  // Larger values move up
+		{
+			arr[index + 1] = arr[index];
+			index--;
+		}
+		arr[index + 1] = item;  // // Put item into its proper location
+	}
+}
+
+bool lumberjacks(int _array[]) {
+	int i;
+	for (i = 0; i < arraySize;i++){
+		if (_array[i] != new_array[i])
+			return false;
+	}
+	return true;
+}
+
+int main()
+{
+	int count = 1;
+	int testCase;
+	bool ascOrder, descOrder;
+	scanf("%d", &testCase);
+	
+	while (testCase>0) {
+		int i;
+		int _array[arraySize];
+		for (i = 0; i < arraySize; i++) {
+			scanf("%d", &_array[i]);
+			new_array[i] = _array[i];
+		}
+		
+		sortArray(new_array);
+		ascOrder = lumberjacks(_array);
+			
+		if(count == 1)
+			printf("Lumberjacks:\n");
+		if (ascOrder == true)
+			printf("Ordered\n");
+		else {
+			 sortArray2(new_array);
+			 descOrder = lumberjacks(_array);
+			 if (descOrder == true)
+				 printf("Ordered\n");
+		}
+		if (ascOrder == false && descOrder == false)
+			printf("Unordered\n");
+		testCase--;
+		count++;
+	}
+	return 0;
+}

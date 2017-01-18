@@ -1,0 +1,29 @@
+// UVa 12502 - Three Families.cpp
+// Beware this is one of those annoyingly clever problems on UVa. The problem statement is confusing (on purpose) - and 
+// then if you use floating point numbers you'll likely end up getting a WA.
+
+// In regards to the problem statement: What's not made very clear is that the families do not get paid for their own share of the work.
+// Family C is paying Family A and B only for work that Family C did not do.
+// On the floating point front, think a little outside the box. Maybe a change in time units, perhaps.
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int testCase;
+	int hourA, hourB, dollarC;
+	scanf("%d", &testCase);
+	while (testCase--) {
+		scanf("%d%d%d", &hourA, &hourB, &dollarC);
+		int totalWorkHour = hourA + hourB;
+		int totalWorkHour_A = hourA + (hourA - hourB);
+		int A_paid = (totalWorkHour_A * dollarC) / totalWorkHour;
+		printf("%d\n", A_paid);
+	}
+
+
+	return 0;
+}

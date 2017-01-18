@@ -1,0 +1,23 @@
+// UVa 11547 - Automatic Answer
+
+#include<iostream>
+#include<cstdio>
+using namespace std;
+
+int main()
+{
+	long long int  n;
+	int testCase,remainder;
+	scanf("%d", &testCase);
+	while (testCase--) {
+		scanf("%lld", &n);
+		n = ((((n * 567) / 9) + 7492) * 235) / 47 - 498;
+		remainder = n % 100;
+		int digTensCol = remainder / 10;
+
+		if (digTensCol < 0)
+			digTensCol = digTensCol * -1;
+		printf("%d\n", digTensCol);
+	}
+	return 0;
+}
