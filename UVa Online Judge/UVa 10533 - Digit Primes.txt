@@ -1,0 +1,70 @@
+// UVa 10533 - Digit Primes.cpp
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+const int arraySize = 1000000;
+int prime[arraySize];
+int digit_prime[arraySize];
+
+// Return the sum of the digits of a number
+int sumOfDigits(int n){
+	int sum = 0;
+	while (n != 0){
+		sum += n % 10; // sum + remainder
+		n /= 10; // Reduce the given number by one digit from right side in every step
+	}
+	return sum;
+}
+
+// Store the digit primes
+void digitPrime(){
+	digit_prime[0] = digit_prime[1] = 0;
+	digit_prime[2] = 1; // 2 is a digit prime
+	for (int i = 3; i <= arraySize; i += 2){
+		if (prime[i] == 0){ // If i is a prime
+			if (prime[sumOfDigits(i)] == 0){ 
+				digit_prime[i] = 1;
+			}
+		}
+	}
+}
+
+// Perform cummulative sum
+void cummulativeSum(){
+	for (int i = 1; i <= arraySize; i++){
+		digit_prime[i] = digit_prime[i] + digit_prime[i - 1];
+	}
+}
+
+// Generates prime number
+void primeSieve(){
+	int sqrtN = int(sqrt(double(arraySize)));
+	prime[0] = prime[1] = 1; // 0 & 1 aren't prime
+	for (int i = 2; i <= sqrtN; i++){ // have to check primes up to (sqrt(N))
+		if (prime[i] == 0){
+			// so, i is a prime, so, discard all the multiples 
+			// j = i * i, because it’s the first number to be colored
+			for (int k = i * i; k <= arraySize; k += i){
+				prime[k] = 1; // status of the multiple is 1
+			}
+		}
+	}
+}
+
+int main()
+{
+	primeSieve(); // Pre-cal prime numbers
+	digitPrime();
+	cummulativeSum();
+	int N,t1,t2; // Number of testcase
+	cin >> N;
+	while (N > 0){
+		cin >> t1 >> t2;
+		// Print the number of digit primes between t1 and t2 (inclusive).
+		cout << digit_prime[t2] - digit_prime[t1 - 1] << endl;
+		N--;
+	}
+
+	return 0;
+}

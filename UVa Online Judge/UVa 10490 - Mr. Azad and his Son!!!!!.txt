@@ -1,0 +1,54 @@
+// UVa 10490 - Mr. Azad and his Son!!!!!
+//** One Concept found: except '2' even numbers aren't perfect not prime provided the law
+//** 11, 23, 29 are prime but not perfect
+//** Others primes <=31 are perfect
+//** and help from steven Halim
+
+#include<iostream>
+#include<cmath>
+#include<cstdio>
+using namespace std;
+
+int prime[] = { 2,3,5,7,11,13,17,19,23,29,31 };
+int notPerfect[] = { 11, 23, 29 };
+
+inline unsigned long long int _pow(int base, int power)
+{
+	int i;
+	unsigned long long int result = base;
+	for (i = 0;i < power - 1;i++) {
+		result = result * base;
+	}
+	return result;
+}
+
+int main()
+{
+	int n;
+	unsigned long long int relPerfect,i;
+	
+	while (true) {
+		bool prm = false;
+		scanf("%d", &n);
+		if (n == 0)
+			break;
+		for (i = 0;i < 11;i++) {
+			if (n == prime[i])
+				prm = true;
+		}
+		if (prm) {
+			if (n == 11 || n == 23 || n == 29)
+				printf("Given number is prime. But, NO perfect number is available.\n");
+			else {
+				relPerfect = _pow(2, n - 1) * (_pow(2, n) - 1);  
+				// for n = 31 , relPerfect = 2305843008139952128!
+				// So,  unsigned long long int is used.
+				printf("Perfect: %llu!\n", relPerfect);
+			}
+		}
+		else
+			printf("Given number is NOT prime! NO perfect number is available.\n");
+	}
+		return 0;
+}
+

@@ -1,0 +1,63 @@
+// UVa 10539 - Almost Prime Numbers.cpp
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+const int arraySize = 1000000;
+int primes[arraySize];  // Declared globally,thus automatically assigned initially 0 to every element of the array.
+// prime[i] = 0, if i is prime
+// prime[i] = 1, if i is not a prime
+
+void sievePrimes()
+{
+	int sqrtN = int(sqrt((double)arraySize));
+	primes[0] = primes[1] =  1; // Since, 0 isn't prime either composite
+
+	for (int p = 2; p <= sqrtN; p++){ // // Have to check primes up to (sqrt(N))
+		if (primes[p] == 0){
+			// so, index is a prime, so, discard all the multiples.
+			// j = index * index, because it’s the first number to be colored.
+			for (int np = p*p; np <= arraySize; np += p)
+				primes[np] = 1;
+		}		
+	}		
+}
+
+int main()
+{
+	sievePrimes(); // Pre-cal
+	int testCase;
+	long long int almostPrimes[80070];
+	long long int index;
+	long long int ap;
+	long long int low, high;
+	int n = 0;
+	
+	// Cache almost primes 
+	for (index = 2; index <= arraySize; index++){
+		if (!primes[index]){
+			// almost prime = prime * prime
+			// almost prime = almost prime * prime
+			for (ap = index*index; ap <= 1000000000000; ap *= index)
+				almostPrimes[n++] = ap;
+		}
+			
+	}
+		
+	cin >> testCase;
+	while (testCase>0)
+	{
+		cin >> low >> high;
+		// Find number of almost primes
+		int _count = 0;
+		for (index = 0; index < 80070; index++){
+			if (almostPrimes[index] >= low && almostPrimes[index] <= high)
+				_count++;
+		}
+			
+		cout << _count << endl;
+		testCase--;
+	}
+	return 0;
+}

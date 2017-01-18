@@ -1,0 +1,91 @@
+// UVa 10789 - Prime Frequency.cpp
+#include <iostream>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include <cmath>
+
+using namespace std;
+const int MAX = 26;
+const int arraySize = 3000;
+int prime[arraySize];
+
+// prime[i] = 0, if i is prime
+// prime[i] = 1, if i is not a prime
+// Declared globally,thus automatically assigned initially 0 to every element of the array.
+
+void primeGenerate()
+{
+	int sqrtN = int(sqrt((double)arraySize));
+	//memset(prime, 1, sizeof(prime));
+	prime[0] = prime[1] = 1;    // Since, 0 isn't prime either composite
+
+	for (int index = 2; index <= sqrtN; index++) {
+		// Have to check primes up to (sqrt(N))
+		if (prime[index] == 0){
+			// so, index is a prime, so, discard all the multiples.
+			// j = index * index, because it’s the first number to be colored.
+			for (int k = index + index; k <= arraySize; k += index)
+				prime[k] = 1;
+		}
+	}
+} 
+
+int main()
+{
+	primeGenerate();  // Pre Calculation
+	int testCase,_case = 1;
+	int upper,lower,dig;
+	bool empty;
+	char str[2015];
+	scanf("%d", &testCase);
+	
+	while (testCase--) {
+		int _uppercase[MAX] = {0};
+		int _lowercase[MAX] = {0};
+		int _digit[10] = {0};
+		empty = false;
+		upper = lower = dig = 0;
+		scanf("%s", str);
+		printf("Case %d: ", _case);
+		// Find the frequencies of characters in the given string
+		for (int i = 0; i < strlen(str); i++){
+			if (str[i] >= 'a' && str[i] <= 'z')
+				_lowercase[str[i] - 'a']++;
+
+			else if (str[i] >= 'A' && str[i] <= 'Z') 
+				_uppercase[str[i] - 'A']++;
+
+			else if (str[i] >= '0' && str[i] <= '9') 
+				_digit[str[i] - '0']++;
+		}
+		// ...................................................................................................................
+		int d;
+		for (d = 0; d < 10;d++) {
+			if (prime[_digit[d]] == 0) {
+				dig++;
+				printf("%c", d + '0');
+			}
+		}
+		int u;
+		for (u = 0; u < MAX;u++) {
+			if (prime[_uppercase[u]] == 0) {
+				upper++;
+				printf("%c", u + 'A');
+			}
+		}
+		int l;
+		for (l = 0; l < MAX;l++) {
+			if (prime[_lowercase[l]] == 0) {
+				lower++;
+				printf("%c", l + 'a');
+			}
+		}
+
+		if (lower == 0 && upper == 0 && dig == 0 )
+			printf("empty");
+		printf("\n");
+		_case++;
+	}
+	return 0;
+}

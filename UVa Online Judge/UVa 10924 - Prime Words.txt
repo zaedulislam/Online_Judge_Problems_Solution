@@ -1,0 +1,39 @@
+// UVa 10924 - Prime Words.cpp
+#include<iostream>
+#include<cmath>
+#include<string>
+using namespace std;
+
+// Return true if the sum of letters is prime else return false
+bool isPrimeWords(int sum){
+	int sqrtN = int(sqrt(double(sum)));
+	for (int i = 2; i <= sqrtN; i++){
+		if (sum % i == 0)
+			return false;
+	}
+	return true;
+}
+
+int main()
+{
+	string Words;
+	
+	while (cin >> Words){
+		int i = 0, freq[53] = { 0 };
+		int sum_letters = 0;
+		for (int k = 0; k < Words.length();k++){
+			if (Words[i] >= 'a' && Words[i] <= 'z')
+				sum_letters += Words[i] - 'a' + 1;
+			else if (Words[i] >= 'A' && Words[i] <= 'Z')
+				sum_letters += Words[i] - 'A' + 27;
+			i++;
+		}
+		bool prime = isPrimeWords(sum_letters);
+		if (prime)
+			cout <<"It is a prime word." << endl;
+		else
+			cout << "It is not a prime word." << endl;
+		}
+
+	return 0;
+}

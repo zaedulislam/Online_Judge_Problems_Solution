@@ -1,0 +1,59 @@
+// UVa 10235 - Simply Emirp.cpp
+
+#include<cstdio>
+#include<cmath>
+#include<iostream>
+using namespace std;
+
+const int arraySize = 1000000;
+int prime[arraySize];
+
+// Generates prime number
+
+void sievePrime() {
+	int sqrtN = int(sqrt(double(arraySize)));
+	prime[0] = prime[1] = 1; // 0 & 1 aren't prime
+	for (int i = 2; i <= sqrtN; i++) { // have to check primes up to (sqrt(N))
+		if (prime[i] == 0) {
+			// so, i is a prime, so, discard all the multiples 
+			// j = i * i, because it’s the first number to be colored
+			for (int k = i * i; k <= arraySize; k += i) {
+				prime[k] = 1; // status of the multiple is 1
+			}
+		}
+	}
+}
+
+inline int reverseNumber(int n)
+{
+	int reverse = 0;
+	while (n != 0) {
+		int remainder = n % 10;
+		reverse = reverse * 10 + remainder;
+		n /= 10;
+	}
+	return reverse;
+}
+
+int main()
+{
+	sievePrime(); // Pre calculation
+	int N,reverse_N;
+	while (scanf("%d", &N) == 1) {
+		reverse_N = reverseNumber(N);
+
+		if (!prime[N]) {
+			if(reverse_N == N)
+				printf("%d is prime.\n", N);
+			else {
+				if (!prime[reverse_N])
+					printf("%d is emirp.\n", N);
+				else
+					printf("%d is prime.\n", N);
+			}
+		}
+		else
+			printf("%d is not prime.\n", N);
+	}
+	return 0;
+}

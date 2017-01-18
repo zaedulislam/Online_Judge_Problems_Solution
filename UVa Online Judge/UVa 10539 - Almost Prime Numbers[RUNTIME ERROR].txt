@@ -1,0 +1,62 @@
+// UVa 10539 - Almost Prime Numbers
+// NOT SOLVED
+// RUNTIME ERROR
+
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+const int arraySize = 1000000;
+int status[arraySize];
+int prime[arraySize];
+
+void sievePrime(){
+	int sqrtN = int(sqrt((double)arraySize));
+	status[0] = status[1] = 1;
+	for (int i = 2; i <= sqrtN; i++){
+		if (status[i] == 0){
+			for (int k = i*i; k <= arraySize; k += i){
+				status[k] = 1;
+			}
+		}
+	}
+	int index = 0;
+	prime[index++] = 2;
+	for (int i = 3; i <= arraySize; i += 2){
+		if (status[i] == 0){
+			prime[index++] = i;
+		}
+	}
+}
+
+long long int almostPrimeNumbers(long long int low, long long int high){
+	long long int total_number = 0;
+	for (int i = low; i <= high; i++){
+		int _count = 0;
+		for (int k = 0; prime[k] <= high / 2; k++){
+			if (status[i] != 0){
+				if (i % prime[k] == 0)
+					_count++;
+			}
+		}
+		if (_count == 1)
+			total_number++;
+	}
+	return total_number;
+}
+
+int main()
+{
+	sievePrime();
+	int testCase;
+	cin >> testCase;
+	long long int low, high;
+	while (testCase > 0){
+		cin >> low >> high;
+		long long int result = almostPrimeNumbers(low, high);
+		cout << result << endl;
+		testCase--;
+	}
+	return 0;
+}
