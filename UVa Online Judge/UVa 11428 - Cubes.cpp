@@ -1,51 +1,128 @@
 // UVa 11428 - Cubes.cpp
-#include<iostream>
-#include<cmath>
-#include<cstring>
-#include<string>
-#include<cstdio>
-using namespace std;
 
-inline int cube(int a) {
-	return a * a * a;
+/// Template by Zayed ///
+
+///************************************************************///
+/// #include <bits/stdc++.h>
+#include <iostream>
+#include <cstdio>
+
+#include <string>
+#include <cstring>
+#include <sstream>
+
+#include <vector>
+#include <stack>
+#include <queue>
+#include <deque>
+#include <list>
+#include <map>
+//#include<unordered_map>
+#include <set>
+//#include<unordered_set>
+
+#include <algorithm>
+#include <bitset>
+#include <cmath>
+#include <cstdlib>
+///************************************************************///
+using namespace std;
+int caseno = 1;
+///************************************************************///
+#define NL '\n'
+#define SF scanf
+#define PF printf
+#define PC() printf("Case %d: ", caseno++)//NOTES:printf
+//#define PC cout << "Case "//NOTES:cout
+//#define CN cout << caseno++ << ": "//NOTES:cout
+#define CLR(ar) memset(ar, 0, sizeof(ar))
+#define SET(ar) memset(ar, -1, sizeof(ar))
+#define READ() freopen("input.txt", "r", stdin)
+#define WRITE() freopen("output.txt", "w", stdout)
+#define BOOST std::ios_base::sync_with_stdio(0);
+///************************************************************///
+typedef long long LL;//NOTES:"%lld"
+typedef unsigned long long ULL;//NOTES:"%llu"
+///************************************************************///
+#define INF (1 << 31) - 1
+#define MOD 1000000007
+#define PB push_back
+#define pii pair<int, int>
+#define pic pair<int, char>
+#define pci pair<char, int>
+#define pLL pair<LL, LL>
+#define pis pair<int, string>
+#define psi pair<string, int>
+#define pss pair<string, string>
+#define PI 2 * acos(0.0);
+#define EPS 1e-11;
+///************************************************************///
+// Numeric Functions
+template < class T > inline void SWAP(T &a, T &b) { T t = a; a = b; b = t; }
+inline LL POW(LL base, LL power){
+	LL I, res = base; if (power == 0) return 1;
+	for (I = 0; I < power - 1; I++) res *= base; return res;
 }
+// Translator Functions
+int ToInt(string s) { int r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToInt(
+double ToDouble(string s) { double r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToDouble(
+string ToString(int n) { string s; stringstream convert; convert << n; s = convert.str(); return s; }//NOTES:ToString(
+///************************************************************///
+
+/*
+*******4 Direction Array*******
+int dx[] = {0, 0, - 1, 1}, dy[] = {-1, 1, 0, 0};
+*******8 Direction Array*******
+int dx[] = {0, 0, -1, +1, -1, -1, +1, +1}, dy[] = {-1, +1, 0, 0, -1, +1, -1, +1};
+********Knight Moves********
+int dx[] = {-2, -2, -1, -1, +1, +1, +2, +2}, dy[] = {-1, +1, -2, +2, -2, +2, -1, +1};
+*/
+
+const int SIZE = 1e6;
+
 
 int main()
 {
-	int N,x,y;
-	
-	while (true) {
-		scanf("%d", &N);
-		if (N == 0)
+	///BOOST
+	///READ();
+	///WRITE();
+	int tcases, I, J, K, N, n, m, cnt = 0, len, x, y, xcube, f;
+
+	while(1)
+	{
+		SF("%d", &N);
+
+		if(N == 0)
 			break;
 
-		x = y = 0;
-		while (1) {
-			if (N == (cube(x) - cube(y))) {
-				printf("%d %d\n", x, y);
-				break;
+		f = 0;
+		for(x = 1; x <= 59; x++)
+		{
+			xcube = x * x * x;
+			if(xcube > N)
+			{
+				for(y = 1; y < x; y++)
+				{
+					if(N == xcube -  y * y * y)
+					{
+						f = 1;
+						break;
+					}
+
+				}
+
 			}
-			if (N < cube(x) - cube(y))
-				y++;
-			if (N > cube(x) - cube(y))
-				x++;
-			if (cube(x) - cube(y) == 0 || x >= 60 || y >= 59) {
-				printf("No solution\n");
+
+			if(f == 1)
 				break;
-			}
 		}
+
+		if(f == 1)
+			PF("%d %d\n", x, y);
+		else
+			PF("No solution\n");
+
 	}
-	
+
 	return 0;
 }
-
-I just simply iterate looking for a pair x, y that satisfy n = x^3 - y^3 and I do it until 
-x >= 60 || y>= 59 because the diference between them is greater than 10,000 this means that 
-there is no solution.
-for example if n = 1 then:
-1 = 1^3 - 0^3 then printf "1 0"
-2 = 0^3 - 0^3 doesn't match ... so I keep it up looking for the next candidate
-2 = 1^3 - 0^3 equal to 1 so also, doesn't match again and as this is less than n = 2 x must be greater so increase it again ...
-2 = 2^3 - 0^3 this is 8 , we have exceeded so we need to modify y now. so we increse it.
-2 = 2^3 - 1^3 this is 7 , this goes being the same (or be it greater) so y++ again
-2 = 2^3 - 2^3 this becomes less than 2 again so it means that there is no solution
