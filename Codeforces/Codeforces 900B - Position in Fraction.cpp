@@ -1,8 +1,7 @@
-// Codeforces 214A - System of Equations.cpp
+// Codeforces 900B - Position in Fraction.cpp
 
 /// Template by Zayed ///
 
-///************************************************************///
 /// #include <bits/stdc++.h>
 #include <iostream>
 #include <cstdio>
@@ -26,10 +25,10 @@
 #include <bitset>
 #include <cmath>
 #include <cstdlib>
-///************************************************************///
+
 using namespace std;
 int caseno = 1;
-///************************************************************///
+
 #define NL '\n'
 #define SF scanf
 #define PF printf
@@ -41,10 +40,10 @@ int caseno = 1;
 #define READ() freopen("input.txt", "r", stdin)
 #define WRITE() freopen("output.txt", "w", stdout)
 #define BOOST std::ios_base::sync_with_stdio(0);
-///************************************************************///
+
 typedef long long LL;//NOTES:"%lld"
 typedef unsigned long long ULL;//NOTES:"%llu"
-///************************************************************///
+
 #define INF (1 << 31) - 1
 #define MOD 1000000007
 #define PRIME 999998727899999 			// (largest prime below 10^16)
@@ -59,18 +58,21 @@ typedef unsigned long long ULL;//NOTES:"%llu"
 //#define tiii tuple<int, int, int>
 #define PI 2 * acos(0.0)
 #define EPS 1e-11
-///************************************************************///
+
+
 // Numeric Functions
 template < class T > inline void SWAP(T &a, T &b) { T t = a; a = b; b = t; }
 inline LL POW(LL base, LL power){
 	LL res = base; if (power == 0) return 1;
 	for (int I = 0; I < power - 1; I++) res *= base; return res;
 }
+
+
 // Translator Functions
 int ToInt(string s) { int r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToInt(
 double ToDouble(string s) { double r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToDouble(
-string ToString(int n) { string s; stringstream convert; convert << n; s = convert.str(); return s; }//NOTES:ToString(
-///************************************************************///
+string ToString(double n) { string s; stringstream convert; convert << n; s = convert.str(); return s; }//NOTES:ToString(
+
 
 /*
 *******4 Direction Array*******
@@ -81,7 +83,9 @@ int dx[] = {0, 0, -1, +1, -1, -1, +1, +1}, dy[] = {-1, +1, 0, 0, -1, +1, -1, +1}
 int dx[] = {-2, -2, -1, -1, +1, +1, +2, +2}, dy[] = {-1, +1, -2, +2, -2, +2, -1, +1};
 */
 
+
 const int SIZE = 1e6;
+vector<int> vi;
 
 
 int main()
@@ -89,26 +93,53 @@ int main()
 	BOOST
 	///READ();
 	///WRITE();
-	int T, I, J, K, N, n, m, cnt = 0, len, a, b;
+	int T, I, J, K, N, n, m, cnt = 0, len, c, r, a, b;
 
-	cin >> n >> m;
+	cin >> a >> b >> c;
 
-	for(I = 0; I <= 1000; I++)
+	for(I = 0; I < 1000; I++)
 	{
-		for(J = 0; J <= 1000; J++)
+		if(a % b == 0)
 		{
-			a = I;
-			b = J;
+			r = a / b;
+			vi.PB(r);
+			break;
+		}
+		else
+		{
+			cnt = 0;
+			while(a < b)
+			{
+				a *= 10;
 
-			if((a * a + b == n) && (a + b * b == m))
+				if(cnt > 0)
+					vi.PB(0);
+
 				cnt++;
+			}
+
+			r = a / b;
+			vi.PB(r);
+
+			a = a % b;
 
 		}
 
 	}
 
-	cout << cnt << NL;
+	int SZ = vi.size();
+	for(I = 0; I < SZ; I++)
+	{
+		if(vi[I] == c)
+		{
+			cout << I + 1 << NL;
+			return 0;
+		}
 
+	}
+
+	cout << -1 << NL;
 
 	return 0;
+
 }

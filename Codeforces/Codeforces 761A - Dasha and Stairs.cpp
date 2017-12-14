@@ -1,4 +1,4 @@
-// Codeforces 214A - System of Equations.cpp
+// Codeforces 761A - Dasha and Stairs.cpp
 
 /// Template by Zayed ///
 
@@ -81,7 +81,8 @@ int dx[] = {0, 0, -1, +1, -1, -1, +1, +1}, dy[] = {-1, +1, 0, 0, -1, +1, -1, +1}
 int dx[] = {-2, -2, -1, -1, +1, +1, +2, +2}, dy[] = {-1, +1, -2, +2, -2, +2, -1, +1};
 */
 
-const int SIZE = 1e6;
+const int SIZE = 200 + 10;
+int ar[SIZE];
 
 
 int main()
@@ -89,25 +90,14 @@ int main()
 	BOOST
 	///READ();
 	///WRITE();
-	int T, I, J, K, N, n, m, cnt = 0, len, a, b;
+	int T, I, J, K, N, n, m, cnt = 0, len, a, b, mx = 0;
 
-	cin >> n >> m;
+	cin >> a >> b;
 
-	for(I = 0; I <= 1000; I++)
-	{
-		for(J = 0; J <= 1000; J++)
-		{
-			a = I;
-			b = J;
-
-			if((a * a + b == n) && (a + b * b == m))
-				cnt++;
-
-		}
-
-	}
-
-	cout << cnt << NL;
+	if((a == 0 && b == 0) || abs(a - b) > 1)
+		cout << "NO\n";
+	else
+		cout << "YES\n";
 
 
 	return 0;

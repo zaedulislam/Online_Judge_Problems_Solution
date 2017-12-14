@@ -1,8 +1,7 @@
-// Codeforces 214A - System of Equations.cpp
+// Codeforces 900A - Find Extra One.cpp
 
 /// Template by Zayed ///
 
-///************************************************************///
 /// #include <bits/stdc++.h>
 #include <iostream>
 #include <cstdio>
@@ -26,10 +25,10 @@
 #include <bitset>
 #include <cmath>
 #include <cstdlib>
-///************************************************************///
+
 using namespace std;
 int caseno = 1;
-///************************************************************///
+
 #define NL '\n'
 #define SF scanf
 #define PF printf
@@ -41,10 +40,10 @@ int caseno = 1;
 #define READ() freopen("input.txt", "r", stdin)
 #define WRITE() freopen("output.txt", "w", stdout)
 #define BOOST std::ios_base::sync_with_stdio(0);
-///************************************************************///
+
 typedef long long LL;//NOTES:"%lld"
 typedef unsigned long long ULL;//NOTES:"%llu"
-///************************************************************///
+
 #define INF (1 << 31) - 1
 #define MOD 1000000007
 #define PRIME 999998727899999 			// (largest prime below 10^16)
@@ -59,18 +58,21 @@ typedef unsigned long long ULL;//NOTES:"%llu"
 //#define tiii tuple<int, int, int>
 #define PI 2 * acos(0.0)
 #define EPS 1e-11
-///************************************************************///
+
+
 // Numeric Functions
 template < class T > inline void SWAP(T &a, T &b) { T t = a; a = b; b = t; }
 inline LL POW(LL base, LL power){
 	LL res = base; if (power == 0) return 1;
 	for (int I = 0; I < power - 1; I++) res *= base; return res;
 }
+
+
 // Translator Functions
 int ToInt(string s) { int r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToInt(
 double ToDouble(string s) { double r = 0; istringstream sin(s); sin >> r; return r; }//NOTES:ToDouble(
 string ToString(int n) { string s; stringstream convert; convert << n; s = convert.str(); return s; }//NOTES:ToString(
-///************************************************************///
+
 
 /*
 *******4 Direction Array*******
@@ -81,7 +83,12 @@ int dx[] = {0, 0, -1, +1, -1, -1, +1, +1}, dy[] = {-1, +1, 0, 0, -1, +1, -1, +1}
 int dx[] = {-2, -2, -1, -1, +1, +1, +2, +2}, dy[] = {-1, +1, -2, +2, -2, +2, -1, +1};
 */
 
+
 const int SIZE = 1e6;
+string S;
+int ar[SIZE];
+
+
 
 
 int main()
@@ -89,26 +96,31 @@ int main()
 	BOOST
 	///READ();
 	///WRITE();
-	int T, I, J, K, N, n, m, cnt = 0, len, a, b;
+	int T, I, J, K, N, n, m, cnt = 0, len, x, y, L = 0, R = 0;
 
-	cin >> n >> m;
+	cin >> n;
 
-	for(I = 0; I <= 1000; I++)
+	for(I = 0; I < n; I++)
 	{
-		for(J = 0; J <= 1000; J++)
-		{
-			a = I;
-			b = J;
+		cin >> x >> y;
 
-			if((a * a + b == n) && (a + b * b == m))
-				cnt++;
-
-		}
-
+		if(x < 0)
+			L++;
+		else if (x > 0)
+			R++;
 	}
 
-	cout << cnt << NL;
+
+	if(L == 0 || R == 0)
+		cout << "Yes\n";
+	else if(L == 1 && R >= 1)
+		cout << "Yes\n";
+	else if(R == 1 && L >= 1)
+		cout << "Yes\n";
+	else
+		cout << "No\n";
 
 
 	return 0;
+
 }
