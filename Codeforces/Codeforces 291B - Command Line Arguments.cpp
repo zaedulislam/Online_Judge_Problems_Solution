@@ -1,4 +1,4 @@
-// Coforeces 291B - Command Line Arguments.cpp
+// Codeforces 291B - Command Line Arguments.cpp
 
 /// Template by Zayed ///
 
