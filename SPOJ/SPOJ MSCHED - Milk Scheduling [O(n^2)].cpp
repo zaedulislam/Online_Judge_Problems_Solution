@@ -92,7 +92,7 @@ string ToString(int n) { string s; stringstream convert; convert << n; s = conve
 
 const int SIZE = 1e4 + 10;
 pii ar[SIZE];
-bool used[100000 + 10];
+bool used[SIZE];
 
 
 
@@ -129,5 +129,5 @@ int main()
 
     cout << mx << NL;
 
-	return 0;
+    return 0;
 }
