@@ -123,23 +123,19 @@ int main()
         {
             if(S[I] == '+' || S[I] == '-')
             {
-                m = 10;
                 for(J = 0; J < op.length(); J++)
                 {
                     a *= 10;
                     a += (op[J] - '0');
-                    m *= 10;
                 }
                 op = "";
             }
             else if(S[I] == '=')
             {
-                m = 10;
                 for(J = 0; J < op.length(); J++)
                 {
                     b *= 10;
                     b += (op[J] - '0');
-                    m *= 10;
                 }
                 op = "";
             }
@@ -150,12 +146,10 @@ int main()
 
         if(!ques)
         {
-            m = 10;
             for(J = 0; J < op.length(); J++)
             {
                 c *= 10;
                 c += (op[J] - '0');
-                m *= 10;
             }
         }
 
