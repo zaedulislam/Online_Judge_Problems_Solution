@@ -1,4 +1,4 @@
-// Codeforces 966B - World Cup.cpp
+// Codeforces 996B - World Cup.cpp
 
 /// Template by Zayed ///
 
