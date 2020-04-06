@@ -1,0 +1,32 @@
+#include <iostream>
+#include<cmath>
+#include<string>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+	int T;
+	cin >> T;
+	int number;
+	
+
+	while (T > 0){
+		int count = 0;
+		cin >> number;
+		if (number == 0){
+			cout << 1 << endl;
+			T--;
+			continue;
+		}
+			
+		while (number != 0){
+			number /= 10;
+			count++;
+		}
+		cout << count << endl;
+		T--;
+	}
+
+	return 0;
+}

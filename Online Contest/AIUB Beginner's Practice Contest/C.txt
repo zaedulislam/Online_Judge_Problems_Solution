@@ -1,0 +1,62 @@
+// C - Stone Pile
+#include<iostream>
+#include<string>
+#include<cstdio>
+#include<cmath>
+#include<iomanip>
+using namespace std;
+
+
+const int arraySize = 21;
+long long int arr[arraySize];
+
+void sortPile(int sz)
+{
+	long long int i, item;
+	for (i = 1; i <= sz - 1; i++) {   // Starts with 1 (not 0)
+		item = arr[i];
+		long long int index = i - 1;
+		while (index >= 0 && arr[index] < item) {  // Larger values move up
+			arr[index + 1] = arr[index];
+			index--;
+		}
+		arr[index + 1] = item;  // Put item into its proper location
+	}
+
+	long long int pile1, pile2;
+	pile1 = arr[0]; pile2 = 0;
+
+	long long int k;
+	for (k = 1; k < sz; k++) {
+		if (pile1 < pile2)
+			pile1 += arr[k];
+		else if (pile1 > pile2)
+			pile2 += arr[k];
+		else
+			pile1 += arr[k];
+	}
+	if (pile1 > pile2)
+		printf("%lld\n", pile1 - pile2);
+	else if (pile1 < pile2)
+		printf("%lld\n", pile2 - pile1);
+	else if (pile1 == pile2)
+		printf("0\n");
+}
+
+int main()
+{
+	long long int testCase, stone;
+	
+	long long int i = 0;
+	while (scanf("%lld", &stone) != EOF) {
+		for (i = 0; i < stone;i++)
+			scanf("%lld", &arr[i]);
+		if (stone == 1 && arr[0] == 0) {
+			printf("0\n");
+			continue;
+		}
+		sortPile(i);
+	}
+	
+	return 0;
+}

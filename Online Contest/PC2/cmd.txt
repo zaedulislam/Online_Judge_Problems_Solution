@@ -1,0 +1,10 @@
+C:\Program Files\Java\jdk1.7.0_51\bin
+java,javac in cmd
+
+1. Check java in path
+    a. Set the path
+      path=path=%PATH%C:\Program Files\Java\jdk1.7.0_51\bin;C:\windows\System32\; 
+2. ping to server
+3. pc2team.bat
+    D:
+    

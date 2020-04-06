@@ -1,0 +1,52 @@
+
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<string>
+#include<sstream>
+#include<cctype>
+#include<cmath>
+#include<stack>
+#include<ctime>
+#include<queue>
+#include<algorithm>
+#include<vector>
+typedef unsigned long long llu;
+using namespace std;
+const double PI = 2 * acos(0.0);
+const double EPS = 1e-9;
+
+
+int a[110];
+
+int main()
+{
+    int n,n1,n2;
+    scanf("%d",&n);
+
+    int I ;
+    for(I=0; I < n; I++)
+        scanf("%d",&a[I]);
+
+    sort(a,a+n);
+
+    int flag=1;
+    while(flag==1){
+        flag=0;
+        for(I=0; I < n-1; I++){
+            if(a[I+1] > a[I]){
+                a[I+1]=a[I+1] - a[I];
+                flag=1;
+            }
+        }
+        sort(a,a+n);
+    }
+
+    int sum=0;
+    for(I=0; I < n; I++)
+        sum+=a[I];
+
+    printf("%d\n",sum);
+
+    return 0;
+}

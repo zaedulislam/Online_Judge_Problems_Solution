@@ -1,0 +1,208 @@
+150918 155256.143|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 155256.144|INFO|main|info|
+150918 155256.152|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 155256.152|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 155256.211|INFO|main|startLog|Process id is 3680@Student-PC
+150918 155256.212|INFO|main|start|Starting ConnectionManager...
+150918 155256.405|INFO|main|start|Started ConnectionManager
+150918 155256.406|SEVERE|main|fatalError|Cannot start PC^2, pc2v9.ini file not found in D:\CONTEST2015\pc2-9.2.4\bin
+150918 155256.407|INFO|main|fatalError|PC^2 halted
+150918 155708.791|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 155708.792|INFO|main|info|
+150918 155708.795|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 155708.795|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 155708.801|INFO|main|startLog|Process id is 496@Student-PC
+150918 155708.802|INFO|main|start|Starting ConnectionManager...
+150918 155708.927|INFO|main|start|Started ConnectionManager
+150918 155708.928|INFO|main|info|Starting Server Transport...
+150918 161402.268|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 161402.269|INFO|main|info|
+150918 161402.272|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 161402.272|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 161402.279|INFO|main|startLog|Process id is 3492@Student-PC
+150918 161402.279|INFO|main|start|Starting ConnectionManager...
+150918 161402.402|INFO|main|start|Started ConnectionManager
+150918 161402.403|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 161402.404|INFO|main|setClientServerAndPort|setClientServerAndPort 192.168.56.1 parsed as 192.168.56.1 port 50002
+150918 161402.404|INFO|main|info|Contacting server at 192.168.56.1:50002
+150918 161402.404|INFO|main|connectToMyServer|Connecting to 192.168.56.1:50002
+150918 161403.418|INFO|main|<init>|IO Exception:192.168.56.1
+150918 161403.419|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+150918 161403.420|INFO|main|start|Exception logged 
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection refused: connect
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2261)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+150918 161403.420|INFO|main|info|Unable to contact server at 192.168.56.1:0 Connection refused: connect
+150918 161514.461|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 161514.462|INFO|main|info|
+150918 161514.465|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 161514.466|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 161514.472|INFO|main|startLog|Process id is 2932@Student-PC
+150918 161514.472|INFO|main|start|Starting ConnectionManager...
+150918 161514.596|INFO|main|start|Started ConnectionManager
+150918 161514.597|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 161514.598|INFO|main|setClientServerAndPort|setClientServerAndPort 192.168.56.1 parsed as 192.168.56.1 port 50002
+150918 161514.598|INFO|main|info|Contacting server at 192.168.56.1:50002
+150918 161514.598|INFO|main|connectToMyServer|Connecting to 192.168.56.1:50002
+150918 161515.601|INFO|main|<init>|IO Exception:192.168.56.1
+150918 161515.602|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+150918 161515.603|INFO|main|start|Exception logged 
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection refused: connect
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2261)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+150918 161515.603|INFO|main|info|Unable to contact server at 192.168.56.1:0 Connection refused: connect
+150918 162041.741|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 162041.742|INFO|main|info|
+150918 162041.745|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 162041.745|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 162041.751|INFO|main|startLog|Process id is 1392@Student-PC
+150918 162041.752|INFO|main|start|Starting ConnectionManager...
+150918 162041.873|INFO|main|start|Started ConnectionManager
+150918 162041.875|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 162041.875|INFO|main|setClientServerAndPort|setClientServerAndPort 192.168.56.1 parsed as 192.168.56.1 port 50002
+150918 162041.875|INFO|main|info|Contacting server at 192.168.56.1:50002
+150918 162041.876|INFO|main|connectToMyServer|Connecting to 192.168.56.1:50002
+150918 162042.878|INFO|main|<init>|IO Exception:192.168.56.1
+150918 162042.879|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+150918 162042.880|INFO|main|start|Exception logged 
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection refused: connect
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2261)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+150918 162042.880|INFO|main|info|Unable to contact server at 192.168.56.1:0 Connection refused: connect
+150918 162730.910|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 162730.911|INFO|main|info|
+150918 162730.914|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 162730.915|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 162730.921|INFO|main|startLog|Process id is 864@Student-PC
+150918 162730.921|INFO|main|start|Starting ConnectionManager...
+150918 162731.043|INFO|main|start|Started ConnectionManager
+150918 162731.045|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 162731.045|INFO|main|setClientServerAndPort|setClientServerAndPort 172.16.107.17.1 parsed as 172.16.107.17.1 port 50002
+150918 162731.045|INFO|main|info|Contacting server at 172.16.107.17.1:50002
+150918 162731.046|INFO|main|connectToMyServer|Connecting to 172.16.107.17.1:50002
+150918 162733.314|INFO|main|<init>|could not resolve host:172.16.107.17.1
+150918 162733.315|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+150918 162733.315|INFO|main|start|Exception logged 
+|edu.csus.ecs.pc2.core.transport.TransportException: 172.16.107.17.1
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2261)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+150918 162733.316|INFO|main|info|Unable to contact server at 172.16.107.17.1:0 172.16.107.17.1
+150918 162750.485|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 162750.486|INFO|main|info|
+150918 162750.490|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 162750.490|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 162750.496|INFO|main|startLog|Process id is 1224@Student-PC
+150918 162750.496|INFO|main|start|Starting ConnectionManager...
+150918 162750.619|INFO|main|start|Started ConnectionManager
+150918 162750.620|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 162750.620|INFO|main|setClientServerAndPort|setClientServerAndPort 172.16.107.17.1 parsed as 172.16.107.17.1 port 50002
+150918 162750.620|INFO|main|info|Contacting server at 172.16.107.17.1:50002
+150918 162750.621|INFO|main|connectToMyServer|Connecting to 172.16.107.17.1:50002
+150918 162752.876|INFO|main|<init>|could not resolve host:172.16.107.17.1
+150918 162752.877|INFO|main|connectToMyServer|Could not ConnectToMyServer()
+150918 162752.877|INFO|main|start|Exception logged 
+|edu.csus.ecs.pc2.core.transport.TransportException: 172.16.107.17.1
+|    at edu.csus.ecs.pc2.core.transport.TransportManager.connectToMyServer (TransportManager.java:197)
+|    at edu.csus.ecs.pc2.core.transport.connection.ConnectionManager.connectToMyServer (ConnectionManager.java:99)
+|    at edu.csus.ecs.pc2.core.InternalController.start (InternalController.java:2261)
+|    at edu.csus.ecs.pc2.Starter.main (Starter.java:49)
+150918 162752.878|INFO|main|info|Unable to contact server at 172.16.107.17.1:0 172.16.107.17.1
+150918 162841.776|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 162841.777|INFO|main|info|
+150918 162841.780|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 162841.781|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 162841.787|INFO|main|startLog|Process id is 2356@Student-PC
+150918 162841.787|INFO|main|start|Starting ConnectionManager...
+150918 162841.910|INFO|main|start|Started ConnectionManager
+150918 162841.912|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 162841.912|INFO|main|setClientServerAndPort|setClientServerAndPort 172.16.107.17 parsed as 172.16.107.17 port 50002
+150918 162841.912|INFO|main|info|Contacting server at 172.16.107.17:50002
+150918 162841.913|INFO|main|connectToMyServer|Connecting to 172.16.107.17:50002
+150918 162842.191|INFO|Thread-1|receiveUnencrypted|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=/172.16.107.17,port=50002,localport=2384]-8162719429393287645)
+150918 162842.293|INFO|Thread-1|receiveUnencrypted|receiveUnencrypted Made a secret key for Socket[addr=/172.16.107.17,port=50002,localport=2384]-8162719429393287645 key is com.sun.crypto.provider.DESKey@184b9
+150918 162842.294|INFO|Thread-1|getPublicKeyPacket|Generating Unencrypted Public Key Packet
+150918 162842.295|INFO|Thread-1|getPublicKeyPacket|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    31e333bb bf73e9a9 3f558e6f a13620cc e8d7873c 904d3633 bb8632a3 7a475ef6
+    28f6b8a6 16644dc9 4852258a 14af7db5 ed62e4fd 0d835783 68304905 2484c850
+    3b4e0c82 94575d32 4cadf030 cfcef1c2 6bbc1f9a 835accd6 db88632b c6851b78
+    8f6c2c79 892b2eba 9cbe59e1 7ed363a5 8b141987 c5061ad1 cba925eb 8fbf97fc
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+150918 162842.295|INFO|Thread-1|getPublicKeyPacket|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@a1a6d8
+150918 163431.323|INFO|Thread-1|receive|EOFException in receive for Socket[addr=/172.16.107.17,port=50002,localport=2384]-8162719429393287645
+|java.io.EOFException: null
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (Unknown Source)
+|    at java.io.ObjectInputStream.readObject0 (Unknown Source)
+|    at java.io.ObjectInputStream.readObject (Unknown Source)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:151)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:65)
+150918 163431.325|FINER|Thread-1|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:158)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:65)
+150918 163431.325|FINER|Thread-1|run - e.getmessage is null()|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: null
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:158)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:65)
+150918 163507.941|CONFIG|main|setFileHandlers|Now logging to D:\CONTEST2015\pc2-9.2.4\bin\logs directory.
+150918 163507.942|INFO|main|info|
+150918 163507.945|INFO|main|info|Version 9.2.4 20140920 (Saturday, September 20th 2014 00:52 UTC) Java ver 1.8.0_60 build 2837 Windows 7 6.1 (x86) 
+150918 163507.946|INFO|main|startLog|Working directory is D:\CONTEST2015\pc2-9.2.4\bin
+150918 163507.952|INFO|main|startLog|Process id is 2820@Student-PC
+150918 163507.952|INFO|main|start|Starting ConnectionManager...
+150918 163508.078|INFO|main|start|Started ConnectionManager
+150918 163508.079|INFO|main|setClientServerAndPort|INI File location: file:/D:/CONTEST2015/pc2-9.2.4/bin/pc2v9.ini
+150918 163508.080|INFO|main|setClientServerAndPort|setClientServerAndPort 172.16.107.17 parsed as 172.16.107.17 port 50002
+150918 163508.080|INFO|main|info|Contacting server at 172.16.107.17:50002
+150918 163508.080|INFO|main|connectToMyServer|Connecting to 172.16.107.17:50002
+150918 163508.298|INFO|Thread-1|receiveUnencrypted|receiveUnencrypted(TransportWrapper, ConnectionHandlerID=Socket[addr=/172.16.107.17,port=50002,localport=2471]-7508908590626731211)
+150918 163508.376|INFO|Thread-1|receiveUnencrypted|receiveUnencrypted Made a secret key for Socket[addr=/172.16.107.17,port=50002,localport=2471]-7508908590626731211 key is com.sun.crypto.provider.DESKey@1808f
+150918 163508.376|INFO|Thread-1|getPublicKeyPacket|Generating Unencrypted Public Key Packet
+150918 163508.377|INFO|Thread-1|getPublicKeyPacket|checking key:= SunJCE Diffie-Hellman Public Key:
+y:
+    383bdaed dc3e9804 d2b7b431 242854cf e0493516 d3903801 701eee68 f7479e77
+    15e0f2ea ab2a67ee eabea619 120531da cd7d96ad 40eb421e 3c8e7680 66b7265c
+    356d0308 2d75591e 9902ef7d f930b005 df240673 1ad7bb59 a22974c4 133ff36d
+    9064446f 11da5adf f9842877 66f5bacc 46fd6b94 a31051f0 afc8da04 cf369ad5
+p:
+    f488fd58 4e49dbcd 20b49de4 9107366b 336c380d 451d0f7c 88b31c7c 5b2d8ef6
+    f3c923c0 43f0a55b 188d8ebb 558cb85d 38d334fd 7c175743 a31d186c de33212c
+    b52aff3c e1b12940 18118d7c 84a70a72 d686c403 19c80729 7aca950c d9969fab
+    d00a509b 0246d308 3d66a45d 419f9c7c bd894b22 1926baab a25ec355 e92f78c7
+g:
+    02
+l:
+    512
+150918 163508.377|INFO|Thread-1|getPublicKeyPacket|packet:= edu.csus.ecs.pc2.core.transport.TransportWrapper@19971f1
+150918 175153.869|INFO|Thread-1|receive|SocketException in receive for Socket[addr=/172.16.107.17,port=50002,localport=2471]-7508908590626731211
+|java.net.SocketException: Connection reset
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.net.SocketInputStream.read (Unknown Source)
+|    at java.io.ObjectInputStream$PeekInputStream.peek (Unknown Source)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peek (Unknown Source)
+|    at java.io.ObjectInputStream$BlockDataInputStream.peekByte (Unknown Source)
+|    at java.io.ObjectInputStream.readObject0 (Unknown Source)
+|    at java.io.ObjectInputStream.readObject (Unknown Source)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:151)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:65)
+150918 175153.871|FINER|Thread-1|run|THROW
+|edu.csus.ecs.pc2.core.transport.TransportException: Connection reset
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerThread.receive (ConnectionHandlerThread.java:155)
+|    at edu.csus.ecs.pc2.core.transport.ConnectionHandlerClientThread.run (ConnectionHandlerClientThread.java:65)

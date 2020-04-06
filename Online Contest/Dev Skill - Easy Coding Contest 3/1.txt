@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cstdio>
+#include<string>
+#include<cstring>
+#include<vector>
+#include<cmath>
+#include<iomanip>
+
+using namespace std;
+
+float GetFloatPrecision(float value, float precision)
+{
+	return (floor((value * pow(10, precision) + 0.5)) / pow(10, precision));
+}
+
+
+int  main()
+{
+	int T;
+	cin >> T;
+	float R;
+	float S;
+	
+	
+	if (T > 0 && T <= 30)
+	{
+		while (T > 0)
+		{
+			cin >> R >> S;
+			float value = (R * sqrt(2));
+			GetFloatPrecision(value, 2.00);
+
+			if (S == GetFloatPrecision(value, 2.00))
+				cout << "Yes" << endl;
+			else
+				cout << "No" << endl;
+			T--;
+		}
+	}
+	return 0;
+
+}

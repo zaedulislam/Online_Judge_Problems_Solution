@@ -1,0 +1,57 @@
+//E - Life, the Universe, and Everything.cpp
+
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<string>
+#include<cmath>
+#include<stack>
+using namespace std;
+
+const int _size = 1000;
+char str[_size];
+
+int main()
+{
+	int col, te, i, j, flag;
+	char iFalse;
+	while (1){
+		scanf("%d%c", &col,&iFalse);
+		if (col == 0)
+			break;
+		fgets(str, _size, stdin);
+		int len = strlen(str);
+		if (str[len - 1] != '\0')
+			str[len - 1] = '\0';
+		len--;
+		
+		int k = 0;
+		for (i = 0; i<col; i++)
+		{
+			k = k + 1;
+			flag = 0;
+			for (j = i; j< len; j += col)	{
+				if (flag == 0)
+				{
+					cout << str[j];
+					flag = 1;
+				}
+				else
+				{
+					cout << str[j + col - k - i];
+					flag = 0;
+				}
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+

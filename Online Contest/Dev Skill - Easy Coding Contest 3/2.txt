@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstdio>
+#include<string>
+#include<cstring>
+#include<vector>
+#include<cmath>
+
+
+using namespace std;
+
+int  main()
+{
+	string str = "";
+	
+	int T;
+	cin >> T;
+
+	if (T > 0 && T <= 30)
+	{
+		int count = 1;
+		while (T > 0)
+		{
+			int freq[26] = { 0 };
+			cin >> str;
+			// Find the frequencies of characters in the given string
+			
+			for (int i = 0; i < str.length(); i++)
+			{
+				if (str[i] >= 'a' && str[i] <= 'z')
+					freq[str[i] - 'a']++;
+			}
+			cout << "Case " << count << ":" << endl;
+			for (int k = 0; k<26; k++)
+			{
+				if (freq[k] != 0)
+				{
+					char c = k + 'a';
+					
+					cout << c << "  " << freq[k] << endl;
+				}
+			}
+			count++;
+			T--;
+		} // End
+		
+	} // End
+
+	return 0;
+
+}

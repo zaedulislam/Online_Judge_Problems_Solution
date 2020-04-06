@@ -1,0 +1,30 @@
+#include <iostream>
+#include<cmath>
+#include<string>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+	int T;
+	cin >> T;
+	int n;
+	int k = 1;
+	while (T > 0){
+		bool isSquare = false;
+		
+		cin >> n;
+		
+		for (int i = 1; i <= n; i++){
+			if (i * i == n)
+				isSquare = true;
+		}
+		if (isSquare)
+			cout << "Case " << k<< ": " << "YES" << endl;
+		else
+			cout << "Case " << k << ": " << "NO" << endl;
+		k++;
+		T--;
+	}
+	return 0;
+}

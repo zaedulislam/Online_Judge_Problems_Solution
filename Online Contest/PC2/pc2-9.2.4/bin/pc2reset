@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Purpose: resets contest status.
+# Author : pc2@ecs.csus.edu
+# $HeadURL: http://pc2.ecs.csus.edu/repos/pc2v9/branches/PC2_RELEASE_9_2_x/bin/pc2reset $
+#
+
+. `dirname $0`/pc2env
+
+# clients have a logs directory or servers have a profiles directory
+if [ -d logs -o -d profiles ] ; then
+    `dirname $0`/pc2zip
+    if [ -d archive ]; then
+	rm -fr logs packets reports execute* profiles profiles.properties
+    else
+	echo Could not find archive directory, was pc2zip successful?
+    fi
+else
+    echo Not in directory to reset, should be run from dir with logs or profiles
+fi 
+
+
+# eof pc2reset $Id: pc2reset 2236 2010-10-26 22:10:11Z boudreat $ 

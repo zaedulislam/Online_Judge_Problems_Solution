@@ -1,0 +1,45 @@
+
+int *arr;
+
+void findMedian(int _size)
+{
+	int i, item;
+	double median = 0;
+	for (i = 1; i <= _size - 1; i++) {
+		item = arr[i];
+		int index = i - 1;
+		while (index >= 0 && arr[index] > item){
+			arr[index + 1] = arr[index];
+			index--;
+		}
+		arr[index + 1] = item;  // // Put item into its proper location
+	}
+
+	if (_size % 2 == 0) {
+		median = arr[(_size / 2)-1] + arr[(_size / 2)];
+		median = median / 2.00;
+		printf("%0.1lf\n", median);
+	}
+	else {
+		int temp = _size + 1;
+		median =arr[temp / 2 - 1];
+		printf("%0.1lf\n", median);
+	}
+}
+
+int main()
+{
+	int N;
+	scanf("%d", &N);
+	arr = new int[N];
+
+	int i;
+	for (i = 0; i < N; i++) {
+		scanf("%d", &arr[i]);
+	}
+	findMedian(N);
+
+	/*memset(arr, 0, sizeof(arr));*/
+	return 0;
+}
+

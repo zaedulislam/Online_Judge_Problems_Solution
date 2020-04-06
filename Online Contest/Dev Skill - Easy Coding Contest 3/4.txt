@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdio>
+#include<string>
+#include<cstring>
+#include<vector>
+#include<cmath>
+
+
+using namespace std;
+
+int  main()
+{
+	int T;
+	cin >> T;
+	int X1, Y1, X2, Y2;
+	int count = 1;
+
+	if (T > 0 && T <= 30)
+	{
+		while (T > 0)
+		{
+			cin >> X1 >> Y1 >> X2 >> Y2;
+			if (Y2 == 0)
+			{
+				cout << "Case " << count << ": ";
+				cout << (X2 + Y1) - (X1) << endl;
+			}
+			else
+			{
+				cout << "Case " << count << ": ";
+				cout << abs((X2 - X1)) + abs( (Y2 - Y1)) << endl;
+			}
+			count++;
+			T--;
+		}
+	}
+	return 0;
+
+}

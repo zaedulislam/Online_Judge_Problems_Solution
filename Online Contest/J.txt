@@ -1,0 +1,60 @@
+#include <iostream>
+#include<cstdio>
+#include<cstring>
+#include<string>
+
+using namespace std;
+
+const int _size = 1e5 + 10;
+char str[_size];
+
+int main()
+{
+    char iFalse;
+    int len;
+    while(scanf("%d%c",&len,&iFalse) != EOF)
+    {
+         scanf("%s",str);
+
+        int happy = 0;
+        int sad = 0;
+
+        int I;
+        for(I = 0 ; I < len - 1 ;I++){
+            if(str[I] == '('){
+                if(str[I + 1] == ':')
+                    happy++;
+                if(str[I +1 ] == ')' )
+                    continue;
+                if(str[I +1 ] == '(' )
+                    continue;
+               }
+             else if(str[I] == ')'){
+                if(str[I +1 ] == ':')
+                    sad++;
+                if(str[I +1 ] == ')')
+                    continue;
+                 if(str[I +1 ] == '(')
+                    continue;
+             }
+             else if(str[I] == ':'){
+                if(str[I +1 ] == ':')
+                    continue;
+                if(str[I +1 ] == ')')
+                    happy++;
+                 if(str[I +1 ] == '(')
+                    sad++;
+             }
+          }
+
+          if(happy == sad)
+            printf("BORED\n");
+          else if(happy > sad)
+            printf("HAPPY\n");
+          else if(happy < sad)
+            printf("SAD\n");
+
+    }
+
+    return 0;
+}
