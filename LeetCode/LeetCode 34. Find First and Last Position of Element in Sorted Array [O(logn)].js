@@ -10,7 +10,6 @@ var searchRange = function(nums, target) {
     return [firstPosition, lastPosition];
 };
 
-
 function getLowerOrUpperBound(nums, target, indicator){
     let first = 0;
     let last = nums.length;
