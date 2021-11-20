@@ -1,3 +1,10 @@
+/*
+- Time Complexity: O(n)
+    Each element is visited at most twice (once in the first loop to find the duplicate and once in the second loop to restore the numbers).
+- Space Complexity: O(1)
+    All manipulation is done in place, so no additional storage (barring one variable) is needed.
+*/
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
