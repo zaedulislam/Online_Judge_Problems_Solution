@@ -1,6 +1,6 @@
 /*
     Time Complexity: O(logN)
-    Space complexity: O(1)
+    Space complexity: O(1)
 */
 
 
@@ -15,7 +15,7 @@ public:
         
         while(low <= high){
             long int mid = (low + high) >> 1;
-            cout << "mid: " << mid << endl;
+            
             long int square = mid * mid;
             
             if(square == x){
