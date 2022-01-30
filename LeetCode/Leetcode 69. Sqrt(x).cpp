@@ -7,11 +7,7 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        if(x < 2){
-            return x;
-        }
-        
-        int low = 1, high = (x >> 1), ans;
+        int low = 0, high = x, ans;
         
         while(low <= high){
             long int mid = (low + high) >> 1;
