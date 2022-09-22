@@ -4,7 +4,7 @@ public:
     vector<int> permutation;
     vector<vector<int>> result;
     
-    void backtrack(vector<int> nums, vector<int> permutation, int index){
+    void backtrack(vector<int> nums, int index){
         if(index == nums.size()){
             result.push_back(permutation);
                 
@@ -15,7 +15,7 @@ public:
             if(taken[i] == false){
                 taken[i] = true;
                 permutation[index] = nums[i];
-                backtrack(nums, permutation, index + 1);
+                backtrack(nums, index + 1);
                 taken[i] = false;
             }
         }
@@ -29,7 +29,7 @@ public:
         }
         
         
-        backtrack(nums, permutation, 0);
+        backtrack(nums, 0);
         
         return result;
     }
