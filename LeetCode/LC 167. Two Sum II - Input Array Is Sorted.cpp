@@ -4,10 +4,12 @@ public:
         int leftPointer = 0, rightPointer = numbers.size() - 1;
         
         while(leftPointer < rightPointer){
-            if(numbers[leftPointer] + numbers[rightPointer] == target){
+            int sum = numbers[leftPointer] + numbers[rightPointer];
+            
+            if(sum == target){
                 return {leftPointer + 1, rightPointer + 1};
             }
-            if(numbers[leftPointer] + numbers[rightPointer] > target){
+            if(sum > target){
                 rightPointer--;
             } else{
                 leftPointer++;
