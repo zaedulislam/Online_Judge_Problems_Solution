@@ -1,4 +1,3 @@
-// Approach 1
 class Solution {
 public:
     bool recurse(int n){
@@ -23,7 +22,8 @@ public:
     }
 };
 
-// Approach 2
+
+// Simplified Version
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
