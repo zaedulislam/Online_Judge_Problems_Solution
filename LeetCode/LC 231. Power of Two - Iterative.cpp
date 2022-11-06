@@ -5,19 +5,10 @@ public:
             return false;
         }
 
-        int x;
-        for(int i = 0; i <= 30; i++){   
-            if(i == 0){
-                x = 1;
-            } else{
-                x <<= 1;
-            }
-
-            if(x == n){
-                return true;
-            }
+        while(n % 2 == 0){
+            n /= 2;
         }
 
-        return false;
+        return n == 1;
     }
 };
