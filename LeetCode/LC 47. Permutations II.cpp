@@ -1,16 +1,27 @@
 class Solution {
 public:
-    void generateUniquePermutations(int pos, vector<vector<int>>& uniquePermutations, vector<int>& nums){
-        if(pos == nums.size()){
+    bool shouldSwap(int start, int indexOfPossibleOption, vector<int>& nums){
+        for(int i = start; i < indexOfPossibleOption; i++){
+            if(nums[i] == nums[indexOfPossibleOption]){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    
+    void generateUniquePermutations(int start, vector<vector<int>>& uniquePermutations, vector<int>& nums){
+        if(start == nums.size()){
             uniquePermutations.push_back(nums);
             return;
         }
 
-        for(int i = pos; i < nums.size(); i++){
-            if(nums[pos] != nums[i]){
-                swap(nums[pos], nums[i]);
-                generateUniquePermutations(pos + 1, uniquePermutations, nums);
-                swap(nums[pos], nums[i]);
+        for(int i = start; i < nums.size(); i++){
+            if(shouldSwap(start, i, nums)){
+                swap(nums[start], nums[i]);
+                generateUniquePermutations(start + 1, uniquePermutations, nums);
+                swap(nums[start], nums[i]);
             }
         }
     }
