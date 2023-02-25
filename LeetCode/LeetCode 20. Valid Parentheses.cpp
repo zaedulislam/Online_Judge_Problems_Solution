@@ -1,30 +1,34 @@
 class Solution {
 public:
-    bool isValid(string expression) {
+    bool isMatch(char top, char current){
+        if(top == '(' && current == ')'
+        || top == '{' && current == '}'
+        || top == '[' && current == ']'){
+            return true;
+        }
+
+        return false;
+    }
+
+
+    bool isValid(string s) {
+        int expressionLength = s.length();
         stack<char> stck;
-        int expressionLength = expression.length();
 
-        for (int I = 0; I < expressionLength; I++){
-            if (expression[I] == '(' || expression[I] == '{' || expression[I] == '[') {
-                stck.push(expression[I]);
-            }
-            else {
-                if (stck.empty()) {
+        for(auto ch: s){
+            if(ch == '(' || ch == '{' || ch == '['){
+                stck.push(ch);
+            } else{
+                if(stck.empty()){
                     return false;
                 }
 
-                if (stck.top() == '(' && expression[I] == ')') {
+                char top = stck.top();
+                if(isMatch(top, ch)){
                     stck.pop();
-                }
-                else if (stck.top() == '{' && expression[I] == '}') {
-                    stck.pop();
-                }
-                else if (stck.top() == '[' && expression[I] == ']') {
-                    stck.pop();
-                }
-                else {
+                } else{
                     return false;
-                }	
+                }
             }
         }
 
