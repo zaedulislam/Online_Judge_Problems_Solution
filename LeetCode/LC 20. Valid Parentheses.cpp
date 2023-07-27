@@ -32,6 +32,6 @@ public:
             }
         }
 
-        return stck.empty() ? true : false;
+        return stck.empty();
     }
 };
