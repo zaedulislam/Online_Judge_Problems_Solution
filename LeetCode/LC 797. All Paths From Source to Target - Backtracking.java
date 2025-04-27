@@ -1,5 +1,5 @@
 class Solution {
-    public void DFS(int currentNode, int destinationNode, ArrayList<Integer> currentPath, List<List<Integer>> allPaths, int[][] graph) {
+    public void backtrack(int currentNode, int destinationNode, ArrayList<Integer> currentPath, List<List<Integer>> allPaths, int[][] graph) {
         if (currentNode == destinationNode) {
             allPaths.add(new ArrayList<Integer>(currentPath));
             return;
@@ -23,7 +23,7 @@ class Solution {
 
         currentPath.add(0);
 
-        DFS(0, n - 1, currentPath, allPaths, graph);
+        backtrack(0, n - 1, currentPath, allPaths, graph);
 
         return allPaths;
     }
