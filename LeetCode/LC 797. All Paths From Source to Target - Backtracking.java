@@ -1,6 +1,6 @@
 class Solution {
-    public void backtrack(int currentNode, int destinationNode, ArrayList<Integer> currentPath, List<List<Integer>> allPaths, int[][] graph) {
-        if (currentNode == destinationNode) {
+    public void backtrack(int currentNode, int targetNode, ArrayList<Integer> currentPath, List<List<Integer>> allPaths, int[][] graph) {
+        if (currentNode == targetNode) {
             allPaths.add(new ArrayList<Integer>(currentPath));
             return;
         }
@@ -8,7 +8,7 @@ class Solution {
         for (int neighborNode : graph[currentNode]) {
             currentPath.add(neighborNode);
 
-            DFS(neighborNode, destinationNode, currentPath, allPaths, graph);
+            backtrack(neighborNode, targetNode, currentPath, allPaths, graph);
 
             currentPath.removeLast();
         }
