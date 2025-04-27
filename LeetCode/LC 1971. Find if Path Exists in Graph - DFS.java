@@ -1,15 +1,10 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 class Solution {
     public boolean DFS(int currenNode, int destinationNode, boolean[] visited, Map<Integer, List<Integer>> graph) {
-        visited[currenNode] = true;
-
         if (currenNode == destinationNode) {
             return true;
         }
+
+        visited[currenNode] = true;
 
         for (int neighborNode : graph.get(currenNode)) {
             if (!visited[neighborNode]) {
